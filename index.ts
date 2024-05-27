@@ -81,5 +81,5 @@ export function getPaperSizeInMillimetres(
   }
 }
 
-export { paperSpecifications } from './paperSizes.js'
+export { type PaperType, paperSpecifications } from './paperSizes.js'
 export type { PaperSpecifications } from './types.js'
