@@ -67,6 +67,8 @@ export function getPaperSize(
       unit: 'mm'
     }
   }
+
+  return undefined
 }
 
 export function getLandscapePaperSize(

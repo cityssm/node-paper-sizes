@@ -24,6 +24,7 @@ export function getPaperSize(paperType, paperSizeUnit) {
             unit: 'mm'
         };
     }
+    return undefined;
 }
 export function getLandscapePaperSize(paperType, paperSizeUnit) {
     if (!isPaperType(paperType)) {
