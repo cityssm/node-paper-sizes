@@ -1,14 +1,17 @@
+import { type IsoPaperType } from './paperSpecifications/iso.js';
+import { type NorthAmericanPaperType } from './paperSpecifications/northAmerica.js';
 import type { PaperSpecifications } from './types.js';
-export declare const paperSpecifications: Readonly<{
+export declare const paperSpecifications: Readonly<Readonly<Readonly<{
     LEGAL: {
         width: number;
         height: number;
         unit: "in";
     };
     LETTER: PaperSpecifications;
-    'ANSI A': PaperSpecifications;
     LEDGER: PaperSpecifications;
     TABLOID: PaperSpecifications;
+}> & Readonly<{
+    'ANSI A': PaperSpecifications;
     'ANSI B': PaperSpecifications;
     'ANSI C': {
         width: number;
@@ -25,6 +28,7 @@ export declare const paperSpecifications: Readonly<{
         height: number;
         unit: "in";
     };
+}> & Readonly<{
     'ARCH A': {
         width: number;
         height: number;
@@ -65,6 +69,7 @@ export declare const paperSpecifications: Readonly<{
         height: number;
         unit: "in";
     };
+}>> & Readonly<Readonly<{
     A0: {
         width: number;
         height: number;
@@ -120,6 +125,7 @@ export declare const paperSpecifications: Readonly<{
         height: number;
         unit: "mm";
     };
+}> & Readonly<{
     B0: {
         width: number;
         height: number;
@@ -175,6 +181,7 @@ export declare const paperSpecifications: Readonly<{
         height: number;
         unit: "mm";
     };
+}> & Readonly<{
     C0: {
         width: number;
         height: number;
@@ -230,5 +237,5 @@ export declare const paperSpecifications: Readonly<{
         height: number;
         unit: "mm";
     };
-}>;
-export type PaperType = keyof typeof paperSpecifications | Lowercase<keyof typeof paperSpecifications> | Capitalize<keyof typeof paperSpecifications>;
+}>>>;
+export type PaperType = NorthAmericanPaperType | IsoPaperType;

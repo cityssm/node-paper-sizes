@@ -2,12 +2,15 @@ import assert from 'node:assert'
 import { describe, it } from 'node:test'
 
 import {
+  type PaperType,
   getLandscapePaperSize,
   getPaperSize,
   getPaperSizeInInches,
-  getPaperSizeInMillimetres
+  getPaperSizeInMillimetres,
+  isIsoPaperType,
+  isNorthAmericanPaperType,
+  paperSpecifications
 } from '../index.js'
-import { type PaperType, paperSpecifications } from '../paperSizes.js'
 
 await describe('@cityssm/paper-sizes', async () => {
   const paperTypes = Object.keys(paperSpecifications) as PaperType[]
@@ -21,16 +24,34 @@ await describe('@cityssm/paper-sizes', async () => {
       await it('Returns portrait paper dimensions', async () => {
         const portrait = getPaperSize(paperType)
         console.log(`${paperType}: ${JSON.stringify(portrait)}`)
+
         assert(portrait)
         assert(portrait.width <= portrait.height)
+
+        if (isIsoPaperType(paperType)) {
+          assert.strictEqual(portrait.unit, 'mm')
+        }
+
+        if (isNorthAmericanPaperType(paperType)) {
+          assert.strictEqual(portrait.unit, 'in')
+        }
       })
 
       await it('Returns landscape paper dimensions', async () => {
         const landscape = getLandscapePaperSize(
           paperType.toUpperCase() as PaperType
         )
+
         assert(landscape)
         assert(landscape.width >= landscape.height)
+
+        if (isIsoPaperType(paperType)) {
+          assert.strictEqual(landscape.unit, 'mm')
+        }
+
+        if (isNorthAmericanPaperType(paperType)) {
+          assert.strictEqual(landscape.unit, 'in')
+        }
       })
 
       await it('Returns paper dimensions in inches', async () => {
@@ -52,9 +73,16 @@ await describe('@cityssm/paper-sizes', async () => {
   await it('Returns undefined with the paper type is unknown', async () => {
     const unknownPaperType = 'unknown'
 
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     assert.strictEqual(getPaperSize(unknownPaperType), undefined)
+
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined)
+
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined)
+
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined)
   })
 })

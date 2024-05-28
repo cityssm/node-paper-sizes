@@ -1,13 +1,35 @@
-import { paperSpecifications } from './paperSizes.js';
+import { paperSpecifications } from './paperSpecifications.js';
 const mmToInches = 25.4;
-export function getPaperSize(paperType) {
-    return paperSpecifications[paperType.toUpperCase()];
+export function isPaperType(possiblePaperType) {
+    return Object.hasOwn(paperSpecifications, (possiblePaperType ?? '').toUpperCase());
 }
-export function getLandscapePaperSize(paperType) {
-    const portraitSize = getPaperSize(paperType);
-    if (portraitSize === undefined) {
+export function getPaperSize(paperType, paperSizeUnit) {
+    const specifications = paperSpecifications[(paperType ?? '').toUpperCase()];
+    if (specifications === undefined ||
+        paperSizeUnit === undefined ||
+        specifications.unit === paperSizeUnit) {
+        return specifications;
+    }
+    if (paperSizeUnit === 'in') {
+        return {
+            width: Number.parseFloat((specifications.width / mmToInches).toFixed(3)),
+            height: Number.parseFloat((specifications.height / mmToInches).toFixed(3)),
+            unit: 'in'
+        };
+    }
+    else if (paperSizeUnit === 'mm') {
+        return {
+            width: Number.parseFloat((specifications.width * mmToInches).toFixed(3)),
+            height: Number.parseFloat((specifications.height * mmToInches).toFixed(3)),
+            unit: 'mm'
+        };
+    }
+}
+export function getLandscapePaperSize(paperType, paperSizeUnit) {
+    if (!isPaperType(paperType)) {
         return undefined;
     }
+    const portraitSize = getPaperSize(paperType, paperSizeUnit);
     return {
         width: portraitSize.height,
         height: portraitSize.width,
@@ -15,25 +37,17 @@ export function getLandscapePaperSize(paperType) {
     };
 }
 export function getPaperSizeInInches(paperType) {
-    const size = getPaperSize(paperType);
-    if (size === undefined || size.unit === 'in') {
-        return size;
+    if (!isPaperType(paperType)) {
+        return undefined;
     }
-    return {
-        width: Number.parseFloat((size.width / mmToInches).toFixed(3)),
-        height: Number.parseFloat((size.height / mmToInches).toFixed(3)),
-        unit: 'in'
-    };
+    return getPaperSize(paperType, 'in');
 }
 export function getPaperSizeInMillimetres(paperType) {
-    const size = getPaperSize(paperType);
-    if (size === undefined || size.unit === 'mm') {
-        return size;
+    if (!isPaperType(paperType)) {
+        return undefined;
     }
-    return {
-        width: Number.parseFloat((size.width * mmToInches).toFixed(3)),
-        height: Number.parseFloat((size.height * mmToInches).toFixed(3)),
-        unit: 'mm'
-    };
+    return getPaperSize(paperType, 'mm');
 }
-export { paperSpecifications } from './paperSizes.js';
+export { paperSpecifications } from './paperSpecifications.js';
+export { commonNorthAmericanPaperSpecifications, ansiPaperSpecifications, archPaperSpecifications, northAmericanPaperSpecifications, isNorthAmericanPaperType } from './paperSpecifications/northAmerica.js';
+export { aSeriesPaperSpecifications, bSeriesPaperSpecifications, cSeriesPaperSpecifications, isoPaperSpecifications, isIsoPaperType } from './paperSpecifications/iso.js';

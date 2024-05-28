@@ -1,36 +1,102 @@
-import { type PaperType, paperSpecifications } from './paperSizes.js'
-import type { PaperSpecifications } from './types.js'
+import { type PaperType, paperSpecifications } from './paperSpecifications.js'
+import type { PaperSizeUnit, PaperSpecifications } from './types.js'
 
 const mmToInches = 25.4
 
 /**
- * Retrieves the exact portrait paper dimensions in the unit they were specified in.
- * - North American paper sizes in "in".
- * - European paper sizes in "mm".
- * @param paperType Paper type.
- * @returns The paper specifications.
+ * Determines if a paper type is known.
+ * @param possiblePaperType A possible paper type.
+ * @returns True if the string represents a known paper type.
  */
-export function getPaperSize(
-  paperType: PaperType
-): PaperSpecifications | undefined {
-  return paperSpecifications[paperType.toUpperCase()]
+export function isPaperType(
+  possiblePaperType: string
+): possiblePaperType is PaperType {
+  return Object.hasOwn(
+    paperSpecifications,
+    (possiblePaperType ?? '').toUpperCase()
+  )
 }
 
+export function getPaperSize(
+  paperType: PaperType,
+  paperSizeUnit?: PaperSizeUnit
+): PaperSpecifications
+
+export function getPaperSize(
+  paperType: Omit<string, PaperType>,
+  paperSizeUnit?: PaperSizeUnit
+): undefined
+
 /**
- * Retrieves the exact landscape paper dimensions in the unit they were specified in.
+ * Retrieves the portrait paper dimensions.
+ * When the paperSizeUnit is undefined, the specified units are returned.
  * - North American paper sizes in "in".
- * - European paper sizes in "mm".
+ * - ISO paper sizes in "mm".
  * @param paperType Paper type.
+ * @param paperSizeUnit Optional parameter to return size values in specific unit ("mm" or "in").
+ * @returns The portrait paper specifications.
+ */
+export function getPaperSize(
+  paperType: string,
+  paperSizeUnit?: PaperSizeUnit
+): PaperSpecifications | undefined {
+  const specifications = paperSpecifications[(paperType ?? '').toUpperCase()]
+
+  if (
+    specifications === undefined ||
+    paperSizeUnit === undefined ||
+    specifications.unit === paperSizeUnit
+  ) {
+    return specifications
+  }
+
+  if (paperSizeUnit === 'in') {
+    return {
+      width: Number.parseFloat((specifications.width / mmToInches).toFixed(3)),
+      height: Number.parseFloat(
+        (specifications.height / mmToInches).toFixed(3)
+      ),
+      unit: 'in'
+    }
+  } else if (paperSizeUnit === 'mm') {
+    return {
+      width: Number.parseFloat((specifications.width * mmToInches).toFixed(3)),
+      height: Number.parseFloat(
+        (specifications.height * mmToInches).toFixed(3)
+      ),
+      unit: 'mm'
+    }
+  }
+}
+
+export function getLandscapePaperSize(
+  paperType: PaperType,
+  paperSizeUnit?: PaperSizeUnit
+): PaperSpecifications
+
+export function getLandscapePaperSize(
+  paperType: Omit<string, PaperType>,
+  paperSizeUnit?: PaperSizeUnit
+): undefined
+
+/**
+ * Retrieves the landscape paper dimensions.
+ * When the paperSizeUnit is undefined, the specified units are returned.
+ * - North American paper sizes in "in".
+ * - ISO paper sizes in "mm".
+ * @param paperType Paper type.
+ * @param paperSizeUnit Optional parameter to return size values in specific unit ("mm" or "in").
  * @returns The landscape paper specifications.
  */
 export function getLandscapePaperSize(
-  paperType: PaperType
+  paperType: string,
+  paperSizeUnit?: PaperSizeUnit
 ): PaperSpecifications | undefined {
-  const portraitSize = getPaperSize(paperType)
-
-  if (portraitSize === undefined) {
+  if (!isPaperType(paperType)) {
     return undefined
   }
+
+  const portraitSize = getPaperSize(paperType as PaperType, paperSizeUnit)
 
   return {
     width: portraitSize.height,
@@ -39,26 +105,34 @@ export function getLandscapePaperSize(
   }
 }
 
+export function getPaperSizeInInches(paperType: PaperType): PaperSpecifications
+
+export function getPaperSizeInInches(
+  paperType: Omit<string, PaperType>
+): undefined
+
 /**
  * Retrieves the portarit paper dimensions in inches.
  * @param paperType Paper type.
  * @returns The portrait paper specifications in inches.
  */
 export function getPaperSizeInInches(
-  paperType: PaperType
+  paperType: string
 ): PaperSpecifications | undefined {
-  const size = getPaperSize(paperType)
-
-  if (size === undefined || size.unit === 'in') {
-    return size
+  if (!isPaperType(paperType)) {
+    return undefined
   }
 
-  return {
-    width: Number.parseFloat((size.width / mmToInches).toFixed(3)),
-    height: Number.parseFloat((size.height / mmToInches).toFixed(3)),
-    unit: 'in'
-  }
+  return getPaperSize(paperType, 'in')
 }
+
+export function getPaperSizeInMillimetres(
+  paperType: PaperType
+): PaperSpecifications
+
+export function getPaperSizeInMillimetres(
+  paperType: Omit<string, PaperType>
+): undefined
 
 /**
  * Retrieves the portarit paper dimensions in millimetres.
@@ -66,20 +140,33 @@ export function getPaperSizeInInches(
  * @returns The portrait paper specifications in millimetres.
  */
 export function getPaperSizeInMillimetres(
-  paperType: PaperType
+  paperType: string
 ): PaperSpecifications | undefined {
-  const size = getPaperSize(paperType)
-
-  if (size === undefined || size.unit === 'mm') {
-    return size
+  if (!isPaperType(paperType)) {
+    return undefined
   }
 
-  return {
-    width: Number.parseFloat((size.width * mmToInches).toFixed(3)),
-    height: Number.parseFloat((size.height * mmToInches).toFixed(3)),
-    unit: 'mm'
-  }
+  return getPaperSize(paperType, 'mm')
 }
 
-export { type PaperType, paperSpecifications } from './paperSizes.js'
-export type { PaperSpecifications } from './types.js'
+export { type PaperType, paperSpecifications } from './paperSpecifications.js'
+
+export {
+  type NorthAmericanPaperType,
+  commonNorthAmericanPaperSpecifications,
+  ansiPaperSpecifications,
+  archPaperSpecifications,
+  northAmericanPaperSpecifications,
+  isNorthAmericanPaperType
+} from './paperSpecifications/northAmerica.js'
+
+export {
+  type IsoPaperType,
+  aSeriesPaperSpecifications,
+  bSeriesPaperSpecifications,
+  cSeriesPaperSpecifications,
+  isoPaperSpecifications,
+  isIsoPaperType
+} from './paperSpecifications/iso.js'
+
+export type { PaperSpecifications, PaperSizeUnit } from './types.js'

@@ -1,5 +1,7 @@
+export type PaperSizeUnit = 'mm' | 'in'
+
 export interface PaperSpecifications {
   width: number
   height: number
-  unit: 'mm' | 'in'
+  unit: PaperSizeUnit
 }

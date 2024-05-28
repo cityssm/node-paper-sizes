@@ -1,7 +1,6 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
-import { getLandscapePaperSize, getPaperSize, getPaperSizeInInches, getPaperSizeInMillimetres } from '../index.js';
-import { paperSpecifications } from '../paperSizes.js';
+import { getLandscapePaperSize, getPaperSize, getPaperSizeInInches, getPaperSizeInMillimetres, isIsoPaperType, isNorthAmericanPaperType, paperSpecifications } from '../index.js';
 await describe('@cityssm/paper-sizes', async () => {
     const paperTypes = Object.keys(paperSpecifications);
     for (const paperType of paperTypes) {
@@ -14,11 +13,23 @@ await describe('@cityssm/paper-sizes', async () => {
                 console.log(`${paperType}: ${JSON.stringify(portrait)}`);
                 assert(portrait);
                 assert(portrait.width <= portrait.height);
+                if (isIsoPaperType(paperType)) {
+                    assert.strictEqual(portrait.unit, 'mm');
+                }
+                if (isNorthAmericanPaperType(paperType)) {
+                    assert.strictEqual(portrait.unit, 'in');
+                }
             });
             await it('Returns landscape paper dimensions', async () => {
                 const landscape = getLandscapePaperSize(paperType.toUpperCase());
                 assert(landscape);
                 assert(landscape.width >= landscape.height);
+                if (isIsoPaperType(paperType)) {
+                    assert.strictEqual(landscape.unit, 'mm');
+                }
+                if (isNorthAmericanPaperType(paperType)) {
+                    assert.strictEqual(landscape.unit, 'in');
+                }
             });
             await it('Returns paper dimensions in inches', async () => {
                 const portrait = getPaperSizeInInches(paperType.toLowerCase());
