@@ -33,7 +33,7 @@ export function getPaperSize(
  * - North American paper sizes in "in".
  * - ISO paper sizes in "mm".
  * @param paperType Paper type.
- * @param paperSizeUnit Optional parameter to return size values in specific unit ("mm" or "in").
+ * @param [paperSizeUnit] Optional parameter to return size values in specific unit ("mm" or "in").
  * @returns The portrait paper specifications.
  */
 export function getPaperSize(
@@ -87,7 +87,7 @@ export function getLandscapePaperSize(
  * - North American paper sizes in "in".
  * - ISO paper sizes in "mm".
  * @param paperType Paper type.
- * @param paperSizeUnit Optional parameter to return size values in specific unit ("mm" or "in").
+ * @param [paperSizeUnit] Optional parameter to return size values in specific unit ("mm" or "in").
  * @returns The landscape paper specifications.
  */
 export function getLandscapePaperSize(
@@ -137,7 +137,7 @@ export function getPaperSizeInMillimetres(
 ): undefined
 
 /**
- * Retrieves the portarit paper dimensions in millimetres.
+ * Retrieves the portrait paper dimensions in millimetres.
  * @param paperType Paper type.
  * @returns The portrait paper specifications in millimetres.
  */
