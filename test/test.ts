@@ -70,19 +70,25 @@ await describe('@cityssm/paper-sizes', async () => {
     })
   }
 
-  await it('Returns undefined with the paper type is unknown', async () => {
-    const unknownPaperType = 'unknown'
+  await describe('Error handling', async () => {
+    await it('Returns undefined when the size unit is unknown', async() => {
+      assert.strictEqual(getPaperSize('Letter', 'bananas'), undefined)
+    })
 
-    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-    assert.strictEqual(getPaperSize(unknownPaperType), undefined)
+    await it('Returns undefined when the paper type is unknown', async () => {
+      const unknownPaperType = 'unknown'
 
-    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-    assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined)
+      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+      assert.strictEqual(getPaperSize(unknownPaperType), undefined)
 
-    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-    assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined)
+      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+      assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined)
 
-    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-    assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined)
+      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+      assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined)
+
+      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+      assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined)
+    })
   })
 })

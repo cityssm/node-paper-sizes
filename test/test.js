@@ -43,11 +43,16 @@ await describe('@cityssm/paper-sizes', async () => {
             });
         });
     }
-    await it('Returns undefined with the paper type is unknown', async () => {
-        const unknownPaperType = 'unknown';
-        assert.strictEqual(getPaperSize(unknownPaperType), undefined);
-        assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined);
-        assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined);
-        assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined);
+    await describe('Error handling', async () => {
+        await it('Returns undefined when the size unit is unknown', async () => {
+            assert.strictEqual(getPaperSize('Letter', 'bananas'), undefined);
+        });
+        await it('Returns undefined when the paper type is unknown', async () => {
+            const unknownPaperType = 'unknown';
+            assert.strictEqual(getPaperSize(unknownPaperType), undefined);
+            assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined);
+            assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined);
+            assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined);
+        });
     });
 });
