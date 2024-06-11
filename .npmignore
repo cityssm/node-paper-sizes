@@ -7,6 +7,6 @@ test/
 .eslintignore
 .gitignore
 .prettierignore
-.prettierrc.json
 eslint.config.*
+prettier.config.*
 tsconfig.json
