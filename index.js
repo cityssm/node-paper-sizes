@@ -1,7 +1,7 @@
 import { paperSpecifications } from './paperSpecifications.js';
 const mmToInches = 25.4;
-export function isPaperType(possiblePaperType) {
-    return Object.hasOwn(paperSpecifications, (possiblePaperType ?? '').toUpperCase());
+export function isPaperType(possiblePaperType = '') {
+    return Object.hasOwn(paperSpecifications, possiblePaperType.toUpperCase());
 }
 export function getPaperSize(paperType, paperSizeUnit) {
     const specifications = paperSpecifications[(paperType ?? '').toUpperCase()];

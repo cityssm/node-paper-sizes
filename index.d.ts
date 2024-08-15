@@ -1,10 +1,14 @@
 import { type PaperType } from './paperSpecifications.js';
 import type { PaperSizeUnit, PaperSpecifications } from './types.js';
-export declare function isPaperType(possiblePaperType: string): possiblePaperType is PaperType;
+export declare function isPaperType(possiblePaperType?: string): possiblePaperType is PaperType;
 export declare function getPaperSize(paperType: PaperType, paperSizeUnit?: PaperSizeUnit): PaperSpecifications;
 export declare function getPaperSize(paperType: Omit<string, PaperType>, paperSizeUnit?: PaperSizeUnit): undefined;
+export declare function getPaperSize(paperType: PaperType, paperSizeUnit?: Omit<string, PaperSizeUnit>): undefined;
+export declare function getPaperSize(paperType: Omit<string, PaperType>, paperSizeUnit?: Omit<string, PaperSizeUnit>): undefined;
 export declare function getLandscapePaperSize(paperType: PaperType, paperSizeUnit?: PaperSizeUnit): PaperSpecifications;
 export declare function getLandscapePaperSize(paperType: Omit<string, PaperType>, paperSizeUnit?: PaperSizeUnit): undefined;
+export declare function getLandscapePaperSize(paperType: PaperType, paperSizeUnit?: Omit<string, PaperSizeUnit>): undefined;
+export declare function getLandscapePaperSize(paperType: Omit<string, PaperType>, paperSizeUnit?: Omit<string, PaperSizeUnit>): undefined;
 export declare function getPaperSizeInInches(paperType: PaperType): PaperSpecifications;
 export declare function getPaperSizeInInches(paperType: Omit<string, PaperType>): undefined;
 export declare function getPaperSizeInMillimetres(paperType: PaperType): PaperSpecifications;

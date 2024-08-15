@@ -61,10 +61,7 @@ export type IsoPaperType =
  * @returns True if the string represents a known ISO paper type.
  */
 export function isIsoPaperType(
-  possiblePaperType: string
+  possiblePaperType = ''
 ): possiblePaperType is IsoPaperType {
-  return Object.hasOwn(
-    isoPaperSpecifications,
-    (possiblePaperType ?? '').toUpperCase()
-  )
+  return Object.hasOwn(isoPaperSpecifications, possiblePaperType.toUpperCase())
 }

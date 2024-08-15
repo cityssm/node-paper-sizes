@@ -140,4 +140,4 @@ export declare const northAmericanPaperSpecifications: Readonly<Readonly<{
     };
 }>>;
 export type NorthAmericanPaperType = keyof typeof northAmericanPaperSpecifications | Lowercase<keyof typeof northAmericanPaperSpecifications> | Capitalize<Lowercase<keyof typeof northAmericanPaperSpecifications>>;
-export declare function isNorthAmericanPaperType(possiblePaperType: string): possiblePaperType is NorthAmericanPaperType;
+export declare function isNorthAmericanPaperType(possiblePaperType?: string): possiblePaperType is NorthAmericanPaperType;

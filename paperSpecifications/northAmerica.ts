@@ -65,10 +65,10 @@ export type NorthAmericanPaperType =
  * @returns True if the string represents a known ISO paper type.
  */
 export function isNorthAmericanPaperType(
-  possiblePaperType: string
+  possiblePaperType = ''
 ): possiblePaperType is NorthAmericanPaperType {
   return Object.hasOwn(
     northAmericanPaperSpecifications,
-    (possiblePaperType ?? '').toUpperCase()
+    possiblePaperType.toUpperCase()
   )
 }

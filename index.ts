@@ -9,12 +9,9 @@ const mmToInches = 25.4
  * @returns True if the string represents a known paper type.
  */
 export function isPaperType(
-  possiblePaperType: string
+  possiblePaperType = ''
 ): possiblePaperType is PaperType {
-  return Object.hasOwn(
-    paperSpecifications,
-    (possiblePaperType ?? '').toUpperCase()
-  )
+  return Object.hasOwn(paperSpecifications, possiblePaperType.toUpperCase())
 }
 
 export function getPaperSize(
@@ -25,6 +22,16 @@ export function getPaperSize(
 export function getPaperSize(
   paperType: Omit<string, PaperType>,
   paperSizeUnit?: PaperSizeUnit
+): undefined
+
+export function getPaperSize(
+  paperType: PaperType,
+  paperSizeUnit?: Omit<string, PaperSizeUnit>
+): undefined
+
+export function getPaperSize(
+  paperType: Omit<string, PaperType>,
+  paperSizeUnit?: Omit<string, PaperSizeUnit>
 ): undefined
 
 /**
@@ -40,7 +47,9 @@ export function getPaperSize(
   paperType: string,
   paperSizeUnit?: PaperSizeUnit
 ): PaperSpecifications | undefined {
-  const specifications = paperSpecifications[(paperType ?? '').toUpperCase()]
+  const specifications = paperSpecifications[
+    (paperType ?? '').toUpperCase()
+  ] as PaperSpecifications | undefined
 
   if (
     specifications === undefined ||
@@ -79,6 +88,16 @@ export function getLandscapePaperSize(
 export function getLandscapePaperSize(
   paperType: Omit<string, PaperType>,
   paperSizeUnit?: PaperSizeUnit
+): undefined
+
+export function getLandscapePaperSize(
+  paperType: PaperType,
+  paperSizeUnit?: Omit<string, PaperSizeUnit>
+): undefined
+
+export function getLandscapePaperSize(
+  paperType: Omit<string, PaperType>,
+  paperSizeUnit?: Omit<string, PaperSizeUnit>
 ): undefined
 
 /**

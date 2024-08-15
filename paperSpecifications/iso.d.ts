@@ -339,4 +339,4 @@ export declare const isoPaperSpecifications: Readonly<Readonly<{
     };
 }>>;
 export type IsoPaperType = keyof typeof isoPaperSpecifications | Lowercase<keyof typeof isoPaperSpecifications>;
-export declare function isIsoPaperType(possiblePaperType: string): possiblePaperType is IsoPaperType;
+export declare function isIsoPaperType(possiblePaperType?: string): possiblePaperType is IsoPaperType;
