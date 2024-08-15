@@ -2,7 +2,7 @@
   "name": "@cityssm/paper-sizes",
   "version": "0.2.1",
   "type": "module",
-  "description": "Retrieves exact dimensions for common paper sizes.",
+  "description": "Retrieves exact dimensions for common paper sizes, including North American (ANSI and ARCH) and ISO.",
   "exports": "./index.js",
   "scripts": {
     "test": "node --test",
@@ -17,7 +17,10 @@
     "paper-sizes",
     "legal",
     "letter",
-    "dimensions"
+    "dimensions",
+    "iso",
+    "ansi",
+    "arch"
   ],
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
