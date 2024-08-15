@@ -100,6 +100,10 @@ export function getLandscapePaperSize(
 
   const portraitSize = getPaperSize(paperType as PaperType, paperSizeUnit)
 
+  if (portraitSize === undefined) {
+    return undefined
+  }
+
   return {
     width: portraitSize.height,
     height: portraitSize.width,

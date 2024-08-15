@@ -31,6 +31,9 @@ export function getLandscapePaperSize(paperType, paperSizeUnit) {
         return undefined;
     }
     const portraitSize = getPaperSize(paperType, paperSizeUnit);
+    if (portraitSize === undefined) {
+        return undefined;
+    }
     return {
         width: portraitSize.height,
         height: portraitSize.width,
