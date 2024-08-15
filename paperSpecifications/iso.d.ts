@@ -338,5 +338,5 @@ export declare const isoPaperSpecifications: Readonly<Readonly<{
         unit: "mm";
     };
 }>>;
-export type IsoPaperType = keyof typeof isoPaperSpecifications | Lowercase<keyof typeof isoPaperSpecifications> | Capitalize<Lowercase<keyof typeof isoPaperSpecifications>>;
+export type IsoPaperType = keyof typeof isoPaperSpecifications | Lowercase<keyof typeof isoPaperSpecifications>;
 export declare function isIsoPaperType(possiblePaperType: string): possiblePaperType is IsoPaperType;

@@ -54,7 +54,6 @@ export const isoPaperSpecifications = Object.freeze(
 export type IsoPaperType =
   | keyof typeof isoPaperSpecifications
   | Lowercase<keyof typeof isoPaperSpecifications>
-  | Capitalize<Lowercase<keyof typeof isoPaperSpecifications>>
 
 /**
  * Determines if a paper type is an ISO paper type.
