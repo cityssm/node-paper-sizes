@@ -21,16 +21,11 @@ export function getPaperSize(
 
 export function getPaperSize(
   paperType: Omit<string, PaperType>,
-  paperSizeUnit?: PaperSizeUnit
+  paperSizeUnit?: string
 ): undefined
 
 export function getPaperSize(
   paperType: PaperType,
-  paperSizeUnit?: Omit<string, PaperSizeUnit>
-): undefined
-
-export function getPaperSize(
-  paperType: Omit<string, PaperType>,
   paperSizeUnit?: Omit<string, PaperSizeUnit>
 ): undefined
 
@@ -87,16 +82,11 @@ export function getLandscapePaperSize(
 
 export function getLandscapePaperSize(
   paperType: Omit<string, PaperType>,
-  paperSizeUnit?: PaperSizeUnit
+  paperSizeUnit?: string
 ): undefined
 
 export function getLandscapePaperSize(
   paperType: PaperType,
-  paperSizeUnit?: Omit<string, PaperSizeUnit>
-): undefined
-
-export function getLandscapePaperSize(
-  paperType: Omit<string, PaperType>,
   paperSizeUnit?: Omit<string, PaperSizeUnit>
 ): undefined
 
