@@ -13,7 +13,8 @@ Unlike other "paper size" packages, this package returns sizes in their specifie
 - North American paper sizes (including ANSI and Arch) are returned in inches.
 - ISO paper sizes are returned in millimetres.
 
-This avoids strange paper sizes when used in conjunction with report generating tools,
+This avoids strange paper sizes (like Letter paper set at 215.9 mm x 279.4 mm)
+when used in conjunction with report generating tools,
 like [@cityssm/pdf-puppeteer](https://www.npmjs.com/package/@cityssm/pdf-puppeteer).
 
 That being said, **helper functions are included to return dimensions
