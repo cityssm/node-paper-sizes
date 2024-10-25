@@ -70,34 +70,7 @@ export declare const archPaperSpecifications: Readonly<{
         unit: "in";
     };
 }>;
-export declare const northAmericanPaperSpecifications: Readonly<Readonly<{
-    LEGAL: {
-        width: number;
-        height: number;
-        unit: "in";
-    };
-    LETTER: PaperSpecifications;
-    LEDGER: PaperSpecifications;
-    TABLOID: PaperSpecifications;
-}> & Readonly<{
-    'ANSI A': PaperSpecifications;
-    'ANSI B': PaperSpecifications;
-    'ANSI C': {
-        width: number;
-        height: number;
-        unit: "in";
-    };
-    'ANSI D': {
-        width: number;
-        height: number;
-        unit: "in";
-    };
-    'ANSI E': {
-        width: number;
-        height: number;
-        unit: "in";
-    };
-}> & Readonly<{
+export declare const northAmericanPaperSpecifications: Readonly<{
     'ARCH A': {
         width: number;
         height: number;
@@ -138,6 +111,31 @@ export declare const northAmericanPaperSpecifications: Readonly<Readonly<{
         height: number;
         unit: "in";
     };
-}>>;
+    'ANSI A': PaperSpecifications;
+    'ANSI B': PaperSpecifications;
+    'ANSI C': {
+        width: number;
+        height: number;
+        unit: "in";
+    };
+    'ANSI D': {
+        width: number;
+        height: number;
+        unit: "in";
+    };
+    'ANSI E': {
+        width: number;
+        height: number;
+        unit: "in";
+    };
+    LEGAL: {
+        width: number;
+        height: number;
+        unit: "in";
+    };
+    LETTER: PaperSpecifications;
+    LEDGER: PaperSpecifications;
+    TABLOID: PaperSpecifications;
+}>;
 export type NorthAmericanPaperType = keyof typeof northAmericanPaperSpecifications | Lowercase<keyof typeof northAmericanPaperSpecifications> | Capitalize<Lowercase<keyof typeof northAmericanPaperSpecifications>>;
 export declare function isNorthAmericanPaperType(possiblePaperType?: string): possiblePaperType is NorthAmericanPaperType;

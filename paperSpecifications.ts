@@ -8,12 +8,9 @@ import {
 } from './paperSpecifications/northAmerica.js'
 import type { PaperSpecifications } from './types.js'
 
-export const paperSpecifications = Object.freeze(
-  Object.assign(
-    {},
-    northAmericanPaperSpecifications,
-    isoPaperSpecifications
-  ) satisfies Record<string, PaperSpecifications>
-)
+export const paperSpecifications = Object.freeze({
+  ...northAmericanPaperSpecifications,
+  ...isoPaperSpecifications
+} satisfies Record<string, PaperSpecifications>)
 
 export type PaperType = NorthAmericanPaperType | IsoPaperType

@@ -37,7 +37,11 @@ export const cSeriesPaperSpecifications = Object.freeze({
     C9: { width: 40, height: 57, unit: 'mm' },
     C10: { width: 28, height: 40, unit: 'mm' }
 });
-export const isoPaperSpecifications = Object.freeze(Object.assign({}, aSeriesPaperSpecifications, bSeriesPaperSpecifications, cSeriesPaperSpecifications));
+export const isoPaperSpecifications = Object.freeze({
+    ...aSeriesPaperSpecifications,
+    ...bSeriesPaperSpecifications,
+    ...cSeriesPaperSpecifications
+});
 export function isIsoPaperType(possiblePaperType = '') {
     return Object.hasOwn(isoPaperSpecifications, possiblePaperType.toUpperCase());
 }

@@ -1,6 +1,3 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/indent */
-
 import type { PaperSpecifications } from '../types.js'
 
 const letter: PaperSpecifications = {
@@ -45,14 +42,11 @@ export const archPaperSpecifications = Object.freeze({
   'ARCH E3': { width: 27, height: 39, unit: 'in' }
 } satisfies Record<string, PaperSpecifications>)
 
-export const northAmericanPaperSpecifications = Object.freeze(
-  Object.assign(
-    {},
-    commonNorthAmericanPaperSpecifications,
-    ansiPaperSpecifications,
-    archPaperSpecifications
-  ) satisfies Record<string, PaperSpecifications>
-)
+export const northAmericanPaperSpecifications = Object.freeze({
+  ...commonNorthAmericanPaperSpecifications,
+  ...ansiPaperSpecifications,
+  ...archPaperSpecifications
+} satisfies Record<string, PaperSpecifications>)
 
 export type NorthAmericanPaperType =
   | keyof typeof northAmericanPaperSpecifications

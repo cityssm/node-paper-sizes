@@ -42,14 +42,11 @@ export const cSeriesPaperSpecifications = Object.freeze({
   C10: { width: 28, height: 40, unit: 'mm' }
 } satisfies Record<string, PaperSpecifications>)
 
-export const isoPaperSpecifications = Object.freeze(
-  Object.assign(
-    {},
-    aSeriesPaperSpecifications,
-    bSeriesPaperSpecifications,
-    cSeriesPaperSpecifications
-  )
-)
+export const isoPaperSpecifications = Object.freeze({
+  ...aSeriesPaperSpecifications,
+  ...bSeriesPaperSpecifications,
+  ...cSeriesPaperSpecifications
+})
 
 export type IsoPaperType =
   | keyof typeof isoPaperSpecifications

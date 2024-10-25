@@ -1,3 +1,6 @@
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+
 import { type PaperType, paperSpecifications } from './paperSpecifications.js'
 import type { PaperSizeUnit, PaperSpecifications } from './types.js'
 
@@ -107,8 +110,9 @@ export function getLandscapePaperSize(
     return undefined
   }
 
-  const portraitSize = getPaperSize(paperType as PaperType, paperSizeUnit)
+  const portraitSize = getPaperSize(paperType, paperSizeUnit)
 
+  // eslint-disable-next-line sonarjs/different-types-comparison
   if (portraitSize === undefined) {
     return undefined
   }
@@ -127,7 +131,7 @@ export function getPaperSizeInInches(
 ): undefined
 
 /**
- * Retrieves the portarit paper dimensions in inches.
+ * Retrieves the portrait paper dimensions in inches.
  * @param paperType Paper type.
  * @returns The portrait paper specifications in inches.
  */

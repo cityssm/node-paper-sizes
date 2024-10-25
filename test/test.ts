@@ -20,7 +20,6 @@ await describe('@cityssm/paper-sizes', async () => {
   const paperTypes = Object.keys(paperSpecifications) as PaperType[]
 
   for (const paperType of paperTypes) {
-    // eslint-disable-next-line @typescript-eslint/no-loop-func
     await describe(`Paper type: ${paperType}`, async () => {
       await it('Defined with an upper case key', () => {
         assert.strictEqual(paperType, paperType.toUpperCase())
@@ -83,7 +82,7 @@ await describe('@cityssm/paper-sizes', async () => {
       assert.strictEqual(isNorthAmericanPaperType(invalidPaperType), false)
       assert.strictEqual(isIsoPaperType(invalidPaperType), false)
 
-      // eslint-disable-next-line unicorn/no-useless-undefined
+      // eslint-disable-next-line unicorn/no-useless-undefined, sonarjs/no-undefined-argument
       assert.strictEqual(isPaperType(undefined), false)
     })
 

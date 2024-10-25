@@ -169,119 +169,7 @@ export declare const cSeriesPaperSpecifications: Readonly<{
         unit: "mm";
     };
 }>;
-export declare const isoPaperSpecifications: Readonly<Readonly<{
-    A0: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A1: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A2: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A3: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A4: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A5: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A6: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A7: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A8: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A9: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    A10: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-}> & Readonly<{
-    B0: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B1: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B2: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B3: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B4: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B5: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B6: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B7: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B8: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B9: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-    B10: {
-        width: number;
-        height: number;
-        unit: "mm";
-    };
-}> & Readonly<{
+export declare const isoPaperSpecifications: Readonly<{
     C0: {
         width: number;
         height: number;
@@ -337,6 +225,116 @@ export declare const isoPaperSpecifications: Readonly<Readonly<{
         height: number;
         unit: "mm";
     };
-}>>;
+    B0: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B1: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B2: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B3: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B4: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B5: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B6: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B7: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B8: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B9: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    B10: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A0: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A1: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A2: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A3: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A4: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A5: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A6: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A7: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A8: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A9: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+    A10: {
+        width: number;
+        height: number;
+        unit: "mm";
+    };
+}>;
 export type IsoPaperType = keyof typeof isoPaperSpecifications | Lowercase<keyof typeof isoPaperSpecifications>;
 export declare function isIsoPaperType(possiblePaperType?: string): possiblePaperType is IsoPaperType;

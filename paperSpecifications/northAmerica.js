@@ -35,7 +35,11 @@ export const archPaperSpecifications = Object.freeze({
     'ARCH E2': { width: 26, height: 38, unit: 'in' },
     'ARCH E3': { width: 27, height: 39, unit: 'in' }
 });
-export const northAmericanPaperSpecifications = Object.freeze(Object.assign({}, commonNorthAmericanPaperSpecifications, ansiPaperSpecifications, archPaperSpecifications));
+export const northAmericanPaperSpecifications = Object.freeze({
+    ...commonNorthAmericanPaperSpecifications,
+    ...ansiPaperSpecifications,
+    ...archPaperSpecifications
+});
 export function isNorthAmericanPaperType(possiblePaperType = '') {
     return Object.hasOwn(northAmericanPaperSpecifications, possiblePaperType.toUpperCase());
 }
