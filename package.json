@@ -30,7 +30,7 @@
   "homepage": "https://github.com/cityssm/node-paper-sizes#readme",
   "devDependencies": {
     "@types/node": "^22.8.0",
-    "eslint-config-cityssm": "^13.2.0",
+    "eslint-config-cityssm": "^14.1.0",
     "prettier-config-cityssm": "^1.0.0"
   }
 }
