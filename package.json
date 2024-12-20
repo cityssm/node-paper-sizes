@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/paper-sizes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Retrieves exact dimensions for common paper sizes, including North American (ANSI and ARCH) and ISO.",
   "exports": "./index.js",
