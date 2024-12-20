@@ -29,7 +29,7 @@ export const ansiPaperSpecifications = Object.freeze({
   'ANSI C': { width: 17, height: 22, unit: 'in' },
   'ANSI D': { width: 22, height: 34, unit: 'in' },
   'ANSI E': { width: 34, height: 44, unit: 'in' }
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export const archPaperSpecifications = Object.freeze({
   'ARCH A': { width: 9, height: 12, unit: 'in' },
@@ -40,7 +40,7 @@ export const archPaperSpecifications = Object.freeze({
   'ARCH E1': { width: 30, height: 42, unit: 'in' },
   'ARCH E2': { width: 26, height: 38, unit: 'in' },
   'ARCH E3': { width: 27, height: 39, unit: 'in' }
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export const northAmericanPaperSpecifications = Object.freeze({
   ...commonNorthAmericanPaperSpecifications,

@@ -12,7 +12,7 @@ export const aSeriesPaperSpecifications = Object.freeze({
   A8: { width: 52, height: 74, unit: 'mm' },
   A9: { width: 37, height: 52, unit: 'mm' },
   A10: { width: 26, height: 37, unit: 'mm' }
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export const bSeriesPaperSpecifications = Object.freeze({
   B0: { width: 1000, height: 1414, unit: 'mm' },
@@ -26,7 +26,7 @@ export const bSeriesPaperSpecifications = Object.freeze({
   B8: { width: 62, height: 88, unit: 'mm' },
   B9: { width: 44, height: 62, unit: 'mm' },
   B10: { width: 31, height: 44, unit: 'mm' }
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export const cSeriesPaperSpecifications = Object.freeze({
   C0: { width: 917, height: 1297, unit: 'mm' },
@@ -40,7 +40,7 @@ export const cSeriesPaperSpecifications = Object.freeze({
   C8: { width: 57, height: 81, unit: 'mm' },
   C9: { width: 40, height: 57, unit: 'mm' },
   C10: { width: 28, height: 40, unit: 'mm' }
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export const isoPaperSpecifications = Object.freeze({
   ...aSeriesPaperSpecifications,
