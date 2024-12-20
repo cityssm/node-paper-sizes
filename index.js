@@ -1,5 +1,6 @@
 import { paperSpecifications } from './paperSpecifications.js';
 const mmToInches = 25.4;
+const calculatedPrecision = 3;
 export function isPaperType(possiblePaperType = '') {
     return Object.hasOwn(paperSpecifications, possiblePaperType.toUpperCase());
 }
@@ -12,15 +13,15 @@ export function getPaperSize(paperType, paperSizeUnit) {
     }
     if (paperSizeUnit === 'in') {
         return {
-            width: Number.parseFloat((specifications.width / mmToInches).toFixed(3)),
-            height: Number.parseFloat((specifications.height / mmToInches).toFixed(3)),
+            width: Number.parseFloat((specifications.width / mmToInches).toFixed(calculatedPrecision)),
+            height: Number.parseFloat((specifications.height / mmToInches).toFixed(calculatedPrecision)),
             unit: 'in'
         };
     }
     else if (paperSizeUnit === 'mm') {
         return {
-            width: Number.parseFloat((specifications.width * mmToInches).toFixed(3)),
-            height: Number.parseFloat((specifications.height * mmToInches).toFixed(3)),
+            width: Number.parseFloat((specifications.width * mmToInches).toFixed(calculatedPrecision)),
+            height: Number.parseFloat((specifications.height * mmToInches).toFixed(calculatedPrecision)),
             unit: 'mm'
         };
     }

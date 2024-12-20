@@ -5,6 +5,7 @@ import { type PaperType, paperSpecifications } from './paperSpecifications.js'
 import type { PaperSizeUnit, PaperSpecifications } from './types.js'
 
 const mmToInches = 25.4
+const calculatedPrecision = 3
 
 /**
  * Determines if a paper type is known.
@@ -59,17 +60,21 @@ export function getPaperSize(
 
   if (paperSizeUnit === 'in') {
     return {
-      width: Number.parseFloat((specifications.width / mmToInches).toFixed(3)),
+      width: Number.parseFloat(
+        (specifications.width / mmToInches).toFixed(calculatedPrecision)
+      ),
       height: Number.parseFloat(
-        (specifications.height / mmToInches).toFixed(3)
+        (specifications.height / mmToInches).toFixed(calculatedPrecision)
       ),
       unit: 'in'
     }
   } else if (paperSizeUnit === 'mm') {
     return {
-      width: Number.parseFloat((specifications.width * mmToInches).toFixed(3)),
+      width: Number.parseFloat(
+        (specifications.width * mmToInches).toFixed(calculatedPrecision)
+      ),
       height: Number.parseFloat(
-        (specifications.height * mmToInches).toFixed(3)
+        (specifications.height * mmToInches).toFixed(calculatedPrecision)
       ),
       unit: 'mm'
     }
