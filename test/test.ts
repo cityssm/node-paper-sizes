@@ -1,5 +1,5 @@
 // eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+/* eslint-disable @typescript-eslint/no-confusing-void-expression, @typescript-eslint/no-unnecessary-condition, sonarjs/different-types-comparison */
 
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
@@ -29,7 +29,7 @@ await describe('@cityssm/paper-sizes', async () => {
         const portrait = getPaperSize(paperType)
         console.log(`${paperType}: ${JSON.stringify(portrait)}`)
 
-        assert(portrait)
+        assert(portrait !== undefined)
         assert(portrait.width <= portrait.height)
 
         if (isIsoPaperType(paperType)) {
@@ -46,7 +46,7 @@ await describe('@cityssm/paper-sizes', async () => {
           paperType.toUpperCase() as PaperType
         )
 
-        assert(landscape)
+        assert(landscape !== undefined)
         assert(landscape.width >= landscape.height)
 
         if (isIsoPaperType(paperType)) {
@@ -62,13 +62,13 @@ await describe('@cityssm/paper-sizes', async () => {
         const portrait = getPaperSizeInInches(
           paperType.toLowerCase() as PaperType
         )
-        assert(portrait)
+        assert(portrait !== undefined)
         assert.strictEqual(portrait.unit, 'in')
       })
 
       await it('Returns paper dimensions in millimetres', () => {
         const portrait = getPaperSizeInMillimetres(paperType)
-        assert(portrait)
+        assert(portrait !== undefined)
         assert.strictEqual(portrait.unit, 'mm')
       })
     })

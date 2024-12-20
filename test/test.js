@@ -11,7 +11,7 @@ await describe('@cityssm/paper-sizes', async () => {
             await it('Returns portrait paper dimensions', () => {
                 const portrait = getPaperSize(paperType);
                 console.log(`${paperType}: ${JSON.stringify(portrait)}`);
-                assert(portrait);
+                assert(portrait !== undefined);
                 assert(portrait.width <= portrait.height);
                 if (isIsoPaperType(paperType)) {
                     assert.strictEqual(portrait.unit, 'mm');
@@ -22,7 +22,7 @@ await describe('@cityssm/paper-sizes', async () => {
             });
             await it('Returns landscape paper dimensions', () => {
                 const landscape = getLandscapePaperSize(paperType.toUpperCase());
-                assert(landscape);
+                assert(landscape !== undefined);
                 assert(landscape.width >= landscape.height);
                 if (isIsoPaperType(paperType)) {
                     assert.strictEqual(landscape.unit, 'mm');
@@ -33,12 +33,12 @@ await describe('@cityssm/paper-sizes', async () => {
             });
             await it('Returns paper dimensions in inches', () => {
                 const portrait = getPaperSizeInInches(paperType.toLowerCase());
-                assert(portrait);
+                assert(portrait !== undefined);
                 assert.strictEqual(portrait.unit, 'in');
             });
             await it('Returns paper dimensions in millimetres', () => {
                 const portrait = getPaperSizeInMillimetres(paperType);
-                assert(portrait);
+                assert(portrait !== undefined);
                 assert.strictEqual(portrait.unit, 'mm');
             });
         });
