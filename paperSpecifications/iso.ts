@@ -46,7 +46,7 @@ export const isoPaperSpecifications = Object.freeze({
   ...aSeriesPaperSpecifications,
   ...bSeriesPaperSpecifications,
   ...cSeriesPaperSpecifications
-})
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export type IsoPaperType =
   | keyof typeof isoPaperSpecifications

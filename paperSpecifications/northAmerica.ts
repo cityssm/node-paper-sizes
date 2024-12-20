@@ -46,7 +46,7 @@ export const northAmericanPaperSpecifications = Object.freeze({
   ...commonNorthAmericanPaperSpecifications,
   ...ansiPaperSpecifications,
   ...archPaperSpecifications
-} satisfies Record<string, PaperSpecifications>)
+} satisfies Record<Uppercase<string>, PaperSpecifications>)
 
 export type NorthAmericanPaperType =
   | keyof typeof northAmericanPaperSpecifications
