@@ -18,7 +18,7 @@ when used in conjunction with report generating tools,
 like [@cityssm/pdf-puppeteer](https://www.npmjs.com/package/@cityssm/pdf-puppeteer).
 
 That being said, **helper functions are included to return dimensions
-in either inches or millimetres.**
+in either inches or millimetres** with three-decimal-digit precision.
 
 ## Installation
 
@@ -40,3 +40,25 @@ console.log(getPaperSize('Letter'))
 console.log(getPaperSizeInMillimetres('Letter'))
 // => { "width": 215.9, "height": 279.4, "unit":"mm" }
 ```
+
+### More Exports
+
+Functions
+
+- `isPaperType(possiblePaperType)`
+- `isNorthAmericanPaperType(possiblePaperType)`
+- `isIsoPaperType(possiblePaperType)`
+- `getLandscapePaperSize(paperType)`
+
+Paper Specification Constants
+
+- `paperSpecifications`
+- `northAmericanPaperSpecifications`, `commonNorthAmericanPaperSpecifications`
+- `ansiPaperSpecifications`, `archPaperSpecifications`
+- `isoPaperSpecifications`
+- `aSeriesPaperSpecifications`, `bSeriesPaperSpecifications`, `cSeriesPaperSpecifications`
+
+## Related Projects
+
+[**PDF Puppeteer**](https://www.npmjs.com/package/@cityssm/pdf-puppeteer)<br />
+A simple npm package to convert HTML to PDF for Node.js applications by using Puppeteer.
