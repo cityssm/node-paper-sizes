@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/paper-sizes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Retrieves exact dimensions for common paper sizes, including North American (ANSI and ARCH) and ISO.",
   "keywords": [
     "paper",
