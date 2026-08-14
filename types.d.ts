@@ -1,6 +1,6 @@
-export type PaperSizeUnit = 'mm' | 'in' | 'MM' | 'IN';
+export type PaperSizeUnit = 'in' | 'IN' | 'mm' | 'MM';
 export interface PaperSpecifications {
-    width: number;
     height: number;
+    width: number;
     unit: Lowercase<PaperSizeUnit>;
 }

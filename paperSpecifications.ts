@@ -11,6 +11,6 @@ import type { PaperSpecifications } from './types.js'
 export const paperSpecifications = Object.freeze({
   ...northAmericanPaperSpecifications,
   ...isoPaperSpecifications
-} satisfies Record<Uppercase<string>, PaperSpecifications>)
+} as const satisfies Record<Uppercase<string>, PaperSpecifications>)
 
-export type PaperType = NorthAmericanPaperType | IsoPaperType
+export type PaperType = IsoPaperType | NorthAmericanPaperType

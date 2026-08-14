@@ -1,5 +1,6 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/no-confusing-void-expression, @typescript-eslint/no-unnecessary-condition, sonarjs/different-types-comparison */
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
@@ -20,6 +21,7 @@ await describe('@cityssm/paper-sizes', async () => {
   const paperTypes = Object.keys(paperSpecifications) as PaperType[]
 
   for (const paperType of paperTypes) {
+    // eslint-disable-next-line no-await-in-loop
     await describe(`Paper type: ${paperType}`, async () => {
       await it('Defined with an upper case key', () => {
         assert.strictEqual(paperType, paperType.toUpperCase())
@@ -29,8 +31,8 @@ await describe('@cityssm/paper-sizes', async () => {
         const portrait = getPaperSize(paperType)
         console.log(`${paperType}: ${JSON.stringify(portrait)}`)
 
-        assert(portrait !== undefined)
-        assert(portrait.width <= portrait.height)
+        assert.ok(portrait !== undefined)
+        assert.ok(portrait.width <= portrait.height)
 
         if (isIsoPaperType(paperType)) {
           assert.strictEqual(portrait.unit, 'mm')
@@ -46,8 +48,8 @@ await describe('@cityssm/paper-sizes', async () => {
           paperType.toUpperCase() as PaperType
         )
 
-        assert(landscape !== undefined)
-        assert(landscape.width >= landscape.height)
+        assert.ok(landscape !== undefined)
+        assert.ok(landscape.width >= landscape.height)
 
         if (isIsoPaperType(paperType)) {
           assert.strictEqual(landscape.unit, 'mm')
@@ -62,13 +64,13 @@ await describe('@cityssm/paper-sizes', async () => {
         const portrait = getPaperSizeInInches(
           paperType.toLowerCase() as PaperType
         )
-        assert(portrait !== undefined)
+        assert.ok(portrait !== undefined)
         assert.strictEqual(portrait.unit, 'in')
       })
 
       await it('Returns paper dimensions in millimetres', () => {
         const portrait = getPaperSizeInMillimetres(paperType)
-        assert(portrait !== undefined)
+        assert.ok(portrait !== undefined)
         assert.strictEqual(portrait.unit, 'mm')
       })
     })
@@ -89,9 +91,12 @@ await describe('@cityssm/paper-sizes', async () => {
     await it('Returns undefined when the size unit is unknown', () => {
       const invalidUnit = 'bananas'
 
-      assert.strictEqual(getPaperSize('Letter', invalidUnit), undefined)
       assert.strictEqual(
-        getLandscapePaperSize('Letter', invalidUnit),
+        getPaperSize('Letter', invalidUnit as never),
+        undefined
+      )
+      assert.strictEqual(
+        getLandscapePaperSize('Letter', invalidUnit as never),
         undefined
       )
     })
@@ -99,11 +104,20 @@ await describe('@cityssm/paper-sizes', async () => {
     await it('Returns undefined when the paper type is unknown', () => {
       const unknownPaperType = 'unknown'
 
-      assert.strictEqual(getPaperSize(unknownPaperType), undefined)
-      assert.strictEqual(getLandscapePaperSize(unknownPaperType), undefined)
+      assert.strictEqual(getPaperSize(unknownPaperType as never), undefined)
+      assert.strictEqual(
+        getLandscapePaperSize(unknownPaperType as never),
+        undefined
+      )
 
-      assert.strictEqual(getPaperSizeInInches(unknownPaperType), undefined)
-      assert.strictEqual(getPaperSizeInMillimetres(unknownPaperType), undefined)
+      assert.strictEqual(
+        getPaperSizeInInches(unknownPaperType as never),
+        undefined
+      )
+      assert.strictEqual(
+        getPaperSizeInMillimetres(unknownPaperType as never),
+        undefined
+      )
     })
   })
 })

@@ -337,4 +337,9 @@ export declare const isoPaperSpecifications: Readonly<{
     };
 }>;
 export type IsoPaperType = keyof typeof isoPaperSpecifications | Lowercase<keyof typeof isoPaperSpecifications>;
+/**
+ * Determines if a paper type is an ISO paper type.
+ * @param possiblePaperType A possible paper type.
+ * @returns True if the string represents a known ISO paper type.
+ */
 export declare function isIsoPaperType(possiblePaperType?: string): possiblePaperType is IsoPaperType;

@@ -2,235 +2,235 @@ import { type IsoPaperType } from './paperSpecifications/iso.js';
 import { type NorthAmericanPaperType } from './paperSpecifications/northAmerica.js';
 import type { PaperSpecifications } from './types.js';
 export declare const paperSpecifications: Readonly<{
-    C0: {
+    readonly C0: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C1: {
+    readonly C1: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C2: {
+    readonly C2: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C3: {
+    readonly C3: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C4: {
+    readonly C4: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C5: {
+    readonly C5: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C6: {
+    readonly C6: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C7: {
+    readonly C7: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C8: {
+    readonly C8: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C9: {
+    readonly C9: {
         width: number;
         height: number;
         unit: "mm";
     };
-    C10: {
+    readonly C10: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B0: {
+    readonly B0: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B1: {
+    readonly B1: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B2: {
+    readonly B2: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B3: {
+    readonly B3: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B4: {
+    readonly B4: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B5: {
+    readonly B5: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B6: {
+    readonly B6: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B7: {
+    readonly B7: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B8: {
+    readonly B8: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B9: {
+    readonly B9: {
         width: number;
         height: number;
         unit: "mm";
     };
-    B10: {
+    readonly B10: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A0: {
+    readonly A0: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A1: {
+    readonly A1: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A2: {
+    readonly A2: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A3: {
+    readonly A3: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A4: {
+    readonly A4: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A5: {
+    readonly A5: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A6: {
+    readonly A6: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A7: {
+    readonly A7: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A8: {
+    readonly A8: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A9: {
+    readonly A9: {
         width: number;
         height: number;
         unit: "mm";
     };
-    A10: {
+    readonly A10: {
         width: number;
         height: number;
         unit: "mm";
     };
-    'ARCH A': {
-        width: number;
+    readonly 'ARCH A': {
         height: number;
         unit: "in";
-    };
-    'ARCH B': {
         width: number;
+    };
+    readonly 'ARCH B': {
         height: number;
         unit: "in";
-    };
-    'ARCH C': {
         width: number;
+    };
+    readonly 'ARCH C': {
         height: number;
         unit: "in";
-    };
-    'ARCH D': {
         width: number;
+    };
+    readonly 'ARCH D': {
         height: number;
         unit: "in";
-    };
-    'ARCH E': {
         width: number;
+    };
+    readonly 'ARCH E': {
         height: number;
         unit: "in";
-    };
-    'ARCH E1': {
         width: number;
+    };
+    readonly 'ARCH E1': {
         height: number;
         unit: "in";
-    };
-    'ARCH E2': {
         width: number;
+    };
+    readonly 'ARCH E2': {
         height: number;
         unit: "in";
-    };
-    'ARCH E3': {
         width: number;
+    };
+    readonly 'ARCH E3': {
         height: number;
         unit: "in";
-    };
-    'ANSI A': PaperSpecifications;
-    'ANSI B': PaperSpecifications;
-    'ANSI C': {
         width: number;
+    };
+    readonly 'ANSI A': PaperSpecifications;
+    readonly 'ANSI B': PaperSpecifications;
+    readonly 'ANSI C': {
         height: number;
         unit: "in";
-    };
-    'ANSI D': {
         width: number;
+    };
+    readonly 'ANSI D': {
         height: number;
         unit: "in";
-    };
-    'ANSI E': {
         width: number;
+    };
+    readonly 'ANSI E': {
         height: number;
         unit: "in";
-    };
-    LEGAL: {
         width: number;
+    };
+    readonly LEDGER: PaperSpecifications;
+    readonly LEGAL: {
         height: number;
+        width: number;
         unit: "in";
     };
-    LETTER: PaperSpecifications;
-    LEDGER: PaperSpecifications;
-    TABLOID: PaperSpecifications;
+    readonly LETTER: PaperSpecifications;
+    readonly TABLOID: PaperSpecifications;
 }>;
-export type PaperType = NorthAmericanPaperType | IsoPaperType;
+export type PaperType = IsoPaperType | NorthAmericanPaperType;

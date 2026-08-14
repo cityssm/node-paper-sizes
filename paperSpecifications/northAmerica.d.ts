@@ -1,141 +1,146 @@
 import type { PaperSpecifications } from '../types.js';
 export declare const commonNorthAmericanPaperSpecifications: Readonly<{
+    LEDGER: PaperSpecifications;
     LEGAL: {
-        width: number;
         height: number;
+        width: number;
         unit: "in";
     };
     LETTER: PaperSpecifications;
-    LEDGER: PaperSpecifications;
     TABLOID: PaperSpecifications;
 }>;
 export declare const ansiPaperSpecifications: Readonly<{
     'ANSI A': PaperSpecifications;
     'ANSI B': PaperSpecifications;
     'ANSI C': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ANSI D': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ANSI E': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
 }>;
 export declare const archPaperSpecifications: Readonly<{
     'ARCH A': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH B': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH C': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH D': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E1': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E2': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E3': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
 }>;
 export declare const northAmericanPaperSpecifications: Readonly<{
     'ARCH A': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH B': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH C': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH D': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E1': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E2': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ARCH E3': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ANSI A': PaperSpecifications;
     'ANSI B': PaperSpecifications;
     'ANSI C': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ANSI D': {
-        width: number;
         height: number;
         unit: "in";
+        width: number;
     };
     'ANSI E': {
-        width: number;
         height: number;
         unit: "in";
-    };
-    LEGAL: {
         width: number;
+    };
+    LEDGER: PaperSpecifications;
+    LEGAL: {
         height: number;
+        width: number;
         unit: "in";
     };
     LETTER: PaperSpecifications;
-    LEDGER: PaperSpecifications;
     TABLOID: PaperSpecifications;
 }>;
-export type NorthAmericanPaperType = keyof typeof northAmericanPaperSpecifications | Lowercase<keyof typeof northAmericanPaperSpecifications> | Capitalize<Lowercase<keyof typeof northAmericanPaperSpecifications>>;
+export type NorthAmericanPaperType = Capitalize<Lowercase<keyof typeof northAmericanPaperSpecifications>> | keyof typeof northAmericanPaperSpecifications | Lowercase<keyof typeof northAmericanPaperSpecifications>;
+/**
+ * Determines if a paper type is a North American paper type.
+ * @param possiblePaperType - A possible paper type.
+ * @returns True if the string represents a known North American paper type.
+ */
 export declare function isNorthAmericanPaperType(possiblePaperType?: string): possiblePaperType is NorthAmericanPaperType;
