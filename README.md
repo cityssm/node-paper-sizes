@@ -7,7 +7,8 @@
 
 Retrieves **exact dimensions** for common paper sizes.
 
-Unlike other "paper size" packages, this package returns sizes in their specified units.
+Unlike other "paper size" packages, this package returns sizes in their
+specified units.
 
 - North American paper sizes (including ANSI and Arch) are returned in inches.
 - ISO paper sizes are returned in millimetres.
